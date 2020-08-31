@@ -7,10 +7,12 @@ use Illuminate\Http\Response;
 
 class HelloController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        // controllerからtemplateに変数を渡す処理
-        $data = ['msg' => 'これはコントローラから渡されたメッセージです。'];
+        $data = [
+           'msg'=>'これはコントローラから渡されたメッセージです。',
+           'id'=>$request->id //クエリパラメータのキーidを取り出す。
+       ];
         return view('hello.index', $data);
     }
 }
