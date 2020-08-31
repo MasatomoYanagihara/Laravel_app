@@ -9,4 +9,9 @@ Route::get('/', function () {
 });
 
 // 第２引数にコントローラーを指定する場合は、'コントローラー名@アクション名'と書く。
-Route::get('hello', 'HelloController@index');
+// Route::get('hello', 'HelloController@index');
+
+Route::get('hello', function () {
+    // view('フォルダ名','ファイル名')
+    return view('hello.index');
+});
