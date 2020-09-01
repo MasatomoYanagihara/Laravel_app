@@ -20,14 +20,16 @@
 
 <body>
   <h1>Blade/Index</h1>
-  <p>{{$msg}}</p>
-
+  @if ($msg != '')
+  <p>こんにちは、{{$msg}}さん。</p>
+  @else
+  <p>名前を書いて下さい。</p>
+  @endif
   <form method="POST" action="/hello">
     @csrf
     <input type="text" name="msg">
     <input type="submit">
   </form>
-  
 </body>
 
 </html>
