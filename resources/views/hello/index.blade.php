@@ -22,32 +22,31 @@
 
   @extends('layouts.helloapp')
 
-    @section('title', 'Index')
+  @section('title', 'Index')
 
-      @section('menubar')
-        @parent
-        インデックスページ
-      @endsection
+  @section('menubar')
+  @parent
+  インデックスページ
+  @endsection
 
-      @section('content')
-        <p>ここが本文のコンテンツです。</p>
-        <ul>
-          @each('components.item', $data, 'item')
-        </ul>
-      @endsection
+  @section('content')
+  <p>ここが本文のコンテンツです。</p>
+  <p>Controller value<br>'message' = {{$message}}</p>
+  <p>ViewComposer value<br>'view_message' = {{$view_message}}</p>
+  @endsection
 
 
-      @component('components.message')
-        @slot('msg_title')
-          CAUTION!
-        @endslot
-        @slot('msg_content')
-          これはメッセージの表示です。
-        @endslot
-      @endcomponent
-      
+  @component('components.message')
+  @slot('msg_title')
+  CAUTION!
+  @endslot
+  @slot('msg_content')
+  これはメッセージの表示です。
+  @endslot
+  @endcomponent
+
   @section('footer')
-    copyright 2020 tuyano.
+  copyright 2020 tuyano.
   @endsection
 </body>
 
