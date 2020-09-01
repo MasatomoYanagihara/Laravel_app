@@ -20,16 +20,19 @@
 
 <body>
   <h1>Blade/Index</h1>
-  @isset ($msg)
-  <p>こんにちは、{{$msg}}さん。</p>
-  @else
-  <p>何か書いて下さい。</p>
-  @endisset
-  <form method="POST" action="/hello">
-    @csrf
-    <input type="text" name="msg">
-    <input type="submit">
-  </form>
+  <p>&#064;forディレクティブの例</p>
+  <ol>
+    @for ($i = 1;$i < 100;$i++)
+    @if ($i % 2==1)
+      @continue
+    @elseif ($i <=10)
+    <li>No, {{$i}}
+    @else
+      @break
+    @endif
+    @endfor
+  </ol>
 </body>
+
 
 </html>
