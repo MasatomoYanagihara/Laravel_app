@@ -10,6 +10,8 @@ Route::get('/', function () {
 });
 
 // 第２引数にコントローラーを指定する場合は、'コントローラー名@アクション名'と書く。
+
+// /hello
 Route::get('hello', 'HelloController@index');
 Route::post('hello', 'HelloController@post');
 
@@ -23,3 +25,9 @@ Route::get('hello/del', 'HelloController@del');
 Route::post('hello/del', 'HelloController@remove');
 
 Route::get('hello/show', 'HelloController@show');
+
+// /person
+Route::get('person', 'PersonController@index');
+
+Route::get('person/find', 'PersonController@find');
+Route::post('person/find', 'PersonController@search');
