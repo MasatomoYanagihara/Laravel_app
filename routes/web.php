@@ -12,7 +12,7 @@ Route::get('/', function () {
 // 第２引数にコントローラーを指定する場合は、'コントローラー名@アクション名'と書く。
 
 // /hello
-Route::get('hello', 'HelloController@index');
+Route::get('hello', 'HelloController@index')->middleware('auth'); //ログイン要
 Route::post('hello', 'HelloController@post');
 
 Route::get('hello/add', 'HelloController@add');
@@ -30,6 +30,9 @@ Route::get('hello/rest', 'HelloController@rest');
 
 Route::get('hello/session', 'HelloController@ses_get');
 Route::post('hello/session', 'HelloController@ses_put');
+
+Route::get('hello/auth', 'HelloController@getAuth');
+Route::post('hello/auth', 'HelloController@postAuth');
 
 
 // /person
@@ -55,3 +58,7 @@ Route::post('board/add', 'BoardController@create');
 
 // /rest --resourceオプションをつけて生成された７つのアクションを一括して登録することができる
 Route::resource('rest', 'RestappController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
